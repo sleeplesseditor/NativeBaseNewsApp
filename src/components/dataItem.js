@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ListItem, Thumbnail, Text, Left, Body, Right, Button } from 'native-base';
+import { ListItem, Thumbnail, Text, Left, Body, Right, Button, View } from 'native-base';
 import { defaultImage } from '../config/rest_config';
 import Time from './time';
 
@@ -9,9 +9,14 @@ export default class DataItem extends Component {
         this.data = props.data;
     }
 
+    handlePress = () => {
+        const { title, url } = this.data;
+        this.props.onPress({ title, url });
+    }
+
     render() {
         return (
-            <ListItem thumbnail>
+            <ListItem thumbnail key={this.data.title}>
                 <Left>
                     <Thumbnail square source={{ uri: this.data.urlToImage != null ? this.data.urlToImage : defaultImage }} />
                 </Left>
@@ -24,7 +29,7 @@ export default class DataItem extends Component {
                     </View>
                 </Body>
                 <Right>
-                    <Button transparent>
+                    <Button transparent onPress={this.handlePress}>
                         <Text>View</Text>
                     </Button>
                 </Right>

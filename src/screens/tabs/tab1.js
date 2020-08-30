@@ -3,6 +3,7 @@ import { ActivityIndicator, Alert, View } from 'react-native';
 import { Container, Content, List, Text } from 'native-base';
 import { getArticles } from '../../service/news';
 import DataItem from '../../components/dataItem';
+import ArticleModal from '../../components/modal';
 
 export default class TabOne extends Component {
   constructor(props) {
@@ -10,8 +11,24 @@ export default class TabOne extends Component {
 
     this.state = {
       isLoading: true,
-      newsData: null
+      newsData: null,
+      setModalVisible: false,
+      modalArticleData: {}
     }
+  }
+
+  handleItemDataOnClick = (articleData) => {
+    this.setState({
+      setModalVisible: true,
+      modalArticleData: articleData
+    });
+  }
+
+  handleModalClose = () => {
+    this.setState({
+      setModalVisible: false,
+      modalArticleData: {}
+    });
   }
 
   componentDidMount() {
@@ -35,7 +52,7 @@ export default class TabOne extends Component {
       <List 
         dataArray={this.state.newsData}
         renderRow={(item) => {
-          return <DataItem data={item} />
+          return <DataItem data={item} onPress={this.handleItemDataOnClick} />
       }} />
     )
 
@@ -44,6 +61,11 @@ export default class TabOne extends Component {
         <Content>
           {view}
         </Content>
+        <ArticleModal 
+          showModal={this.state.setModalVisible}
+          articleData={this.state.modalArticleData}
+          onClose={this.handleModalClose}
+        />
       </Container>
     );
   }

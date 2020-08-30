@@ -1,4 +1,4 @@
-import { headlines_url, category, country_code } from '../config/rest_config';
+import { headlines_url, country_code } from '../config/rest_config';
 import { newsAPIKey } from '../config/api_key';
 
 export async function getArticles(category='general') {
