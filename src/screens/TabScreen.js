@@ -15,13 +15,13 @@ export default class TabsExample extends Component {
                     </Body>
                 </Header>
                 <Tabs tabBarUnderlineStyle={{ backgroundColor: '#fff' }}>
-                    <Tab tabStyle={{backgroundColor: '#009387'}} activeTabStyle={{ backgroundColor: '#009387'}} textStyle={{ color: '#fff '}} activeTextStyle={{ color: '#fff'}} heading="Tab1">
+                    <Tab tabStyle={{backgroundColor: '#009387'}} activeTabStyle={{ backgroundColor: '#009387'}} textStyle={{ color: '#fff '}} activeTextStyle={{ color: '#fff'}} heading="General">
                         <TabOne />
                     </Tab>
-                    <Tab tabStyle={{backgroundColor: '#009387'}} activeTabStyle={{ backgroundColor: '#009387'}} textStyle={{ color: '#fff '}} activeTextStyle={{ color: '#fff'}} heading="Tab2">
+                    <Tab tabStyle={{backgroundColor: '#009387'}} activeTabStyle={{ backgroundColor: '#009387'}} textStyle={{ color: '#fff '}} activeTextStyle={{ color: '#fff'}} heading="Business">
                         <TabTwo />
                     </Tab>
-                    <Tab tabStyle={{backgroundColor: '#009387'}} activeTabStyle={{ backgroundColor: '#009387'}} textStyle={{ color: '#fff '}} activeTextStyle={{ color: '#fff'}} heading="Tab3">
+                    <Tab tabStyle={{backgroundColor: '#009387'}} activeTabStyle={{ backgroundColor: '#009387'}} textStyle={{ color: '#fff '}} activeTextStyle={{ color: '#fff'}} heading="Technology">
                         <TabThree />
                     </Tab>
                 </Tabs>
